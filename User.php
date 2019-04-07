@@ -41,7 +41,7 @@ class User {
 		$this->connection = new Connection();
 		$conn = $this->connection->openConnection();
 
-		$read = $conn->prepare("SELECT *FROM User");
+		$read = $conn->prepare("SELECT *FROM [dbo].[User]");
 		$read->execute();
 
 		if ($read->rowCount() > 0) {
