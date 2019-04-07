@@ -44,9 +44,7 @@ class User {
 		$read = $conn->prepare("Select * from [dbo].[User]");
 		$read->execute();
 
-		$result = $read->fetchAll(PDO::FETCH_ASSOC);
-			
-		print_r($result);
+		return $read->fetchAll(PDO::FETCH_ASSOC);
 
 		$this->connection->closeConnection();
 		}catch (Exception $e) {
