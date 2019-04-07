@@ -15,17 +15,6 @@ if (isset($_SESSION["user_id"])) {
 	header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
-function isChecked($hobby, $userHobbies) {
-	if ($userHobbies != NULL) {
-		foreach ($userHobbies as $h) {
-			if (in_array($hobby, $h)) {
-				return true;
-			}
-		}
-		return false;
-	}
-}
-
 ?>
  <html>
 <head>
@@ -61,9 +50,6 @@ function isChecked($hobby, $userHobbies) {
 					<input type="text" class="form-control"  id="email" name="email" value="<?php echo $data['email']; ?>" placeholder="Email" required>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" id="mobile" name="mobile" value="<?php echo $data['mobile_no']; ?>" placeholder="Mobile Number" required>
-				</div>
-				<div class="form-group">
 					<label for="gender">Select Gender</label>
 					<select class="form-control" id="gender" name="gender">
 						<option>--Select--</option>
@@ -83,47 +69,7 @@ echo $option2;
 
 					</select>
 				</div>
-				<div class="form-group">
-					<?php
-$userHobbies = $user->getHobbies($data['user_id']);
-
-?>
-
-
-					<label for="hobby">Select Hobbies</label>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" name="hobby[]" id="hobby" value="cricket" <?php if (isChecked("cricket", $userHobbies)) {echo "checked";}?>>
-						<label class="form-check-label" for="hobby">Cricket</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" name="hobby[]"  id="hobby" value="football" <?php if (isChecked("football", $userHobbies)) {echo "checked";}?>>
-						<label class="form-check-label" for="hobby">Football</label>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="isDisable">Are you Disable</label>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="disable" id="disable" value="yes" <?php if ($data['disability'] == "yes") {
-	echo "checked";
-}
-?>>
-						<label class="form-check-label" for="disable">Yes</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="disable" id="disable" value="no"
-						<?php if ($data['disability'] == "no") {
-	echo "checked";
-}
-?>>
-						<label class="form-check-label" for="disable">No</label>
-					</div>
-				</div>
-				<div class="form-group">
-					<textarea class="form-control" type="textarea" id="description" name="description" maxlength="140" rows="7"><?php echo trim($data['description']); ?>
-					</textarea>
-
-				</div>
+				
 
 				<button type="submit" id="update"  name="update" class="btn btn-primary pull-right">Update</button>
 			</form>
