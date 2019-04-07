@@ -64,6 +64,7 @@ class User {
 			if ($result) {
 				$conn->commit();
 				echo "<i style='color:green'>User Saved Successfully..! <i>";
+				header('location:index.php');
 			} else {
 				echo "<i style='color:red'>There are some problem while saving the Data...! <i>";
 			}
