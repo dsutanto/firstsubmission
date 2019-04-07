@@ -29,6 +29,7 @@ $data = $user->read();
         <th>Name</th>
         <th>Email</th>
         <th>Gender</th>
+        <th>Created At</th>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +39,7 @@ $data = $user->read();
     <td><?php echo $row["FullName"] ?></td>
     <td><?php echo $row["Email"] ?></td>
     <td><?php echo $row["Gender"] ?></td>
+    <td><?php echo $row["Created"] ?></td>
    </tr>
 
   <?php } ?>
