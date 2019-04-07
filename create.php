@@ -35,7 +35,6 @@
 				<div class="form-group">
 					<label for="gender">Select Gender</label>
 					<select class="form-control" id="gender" name="gender">
-						<option>--Select--</option>
 						<option>Male</option>
 						<option>Female</option>
 					</select>
