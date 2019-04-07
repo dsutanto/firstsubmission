@@ -53,6 +53,20 @@ class User {
 		$conn = $this->connection->openConnection();
 
 		$insert = $conn->prepare("INSERT INTO [dbo].[User] (FullName, Email, Gender) VALUES (:name, :email, :gender)");
+		try {
+			$conn->beginTransaction();
+			$result = $insert->execute(array(
+				'FullName' => $this->getFullName(),
+				'Email' => $this->getEmail(),
+				'Gender' => $this->getGender()
+			));
+
+			$conn->commit();
+			
+		} catch (PDOExecption $e) {
+			$conn->rollback();
+			print "Error!: " . $e->getMessage() . "</br>";
+		}
 
 		print_r($insert);
 		$this->connection->closeConnection();
