@@ -51,14 +51,15 @@ class User {
 	function create() {
 		$this->connection = new Connection();
 		$conn = $this->connection->openConnection();
-		$insert = $conn->prepare("INSERT INTO [dbo].[User] (FullName, Email, Gender) VALUES (:name, :email, :gender)");
+		$insert = $conn->prepare("INSERT INTO [dbo].[User] (FullName, Email, Gender, Created) VALUES (:name, :email, :gender, :created)");
 
 		try {
 			$conn->beginTransaction();
 			$result = $insert->execute(array(
 				':name' => $this->getFullName(),
 				':email' => $this->getEmail(),
-				':gender' => $this->getGender()
+				':gender' => $this->getGender(),
+				':created' => date('Y-m-d H:i:s')
 			));
 
 			if ($result) {
