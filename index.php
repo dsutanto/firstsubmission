@@ -1,4 +1,11 @@
 
+<?PHP
+include_once "User.php";
+
+$user = new User();
+$data = $user->read();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +32,19 @@
       </tr>
     </thead>
     <tbody>
+    <?php foreach ($data as $row) {
+	?>
+   <tr>
+    <form name="userForm<?php echo $row['UserId']; ?>" role="form" method="POST" action="UserController.php">
+    <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
+    <td><?php echo $row["FullName"] ?></td>
+    <td><?php echo $row["Email"] ?></td>
+    <td><?php echo $row["Gender"] ?></td>
+  </form>
+   </tr>
+
+<?php
+}?>
     </tbody>
   </table>
 </div>
