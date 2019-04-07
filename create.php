@@ -27,9 +27,11 @@
 			<form name="userForm" role="form" method="POST"  action="UserController.php">
 				<h3 style="margin-bottom: 25px; text-align: center;">Add New User</h3>
 				<div class="form-group">
+					<label for="gender">Full Name</label>
 					<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
 				</div>
 				<div class="form-group">
+					<label for="gender">Email Address</label>
 					<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
 				</div>
 				<div class="form-group">
