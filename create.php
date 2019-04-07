@@ -40,7 +40,13 @@
 						<option>Female</option>
 					</select>
 				</div>
-				<button type="submit" id="submit"  name="create" class="btn btn-primary pull-right">Submit Form</button>
+				<div class="form-group">
+				  <div class="col-md-8">
+				    <button type="submit" id="submit"  name="create" class="btn btn-primary pull-right">Submit Form</button>
+				    <a href="/link-to/whatever-address/" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+				  </div>
+				</div>
+				
 			</form>
 		</div>
 	</div>
