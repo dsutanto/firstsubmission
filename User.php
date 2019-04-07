@@ -39,7 +39,7 @@ class User {
 		$this->connection = new Connection();
 		$conn = $this->connection->openConnection();
 
-		$read = $conn->prepare("SELECT *FROM User");
+		$read = $conn->prepare("SELECT *FROM [dbo].[User]");
 		$read->execute();
 
 		return $read->fetchAll(PDO::FETCH_ASSOC);
@@ -52,7 +52,7 @@ class User {
 		$this->connection = new Connection();
 		$conn = $this->connection->openConnection();
 
-		$insert = $conn->prepare("INSERT INTO 'User' ('FullName', 'Email', 'Gender') VALUES (:name, :email, :gender)");
+		$insert = $conn->prepare("INSERT INTO [dbo].[User] ('FullName', 'Email', 'Gender') VALUES (:name, :email, :gender)");
 
 		try {
 			$conn->beginTransaction();
