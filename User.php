@@ -36,6 +36,8 @@ class User {
 
 	function read() {
 
+		try{
+			
 		$this->connection = new Connection();
 		$conn = $this->connection->openConnection();
 
@@ -51,6 +53,9 @@ class User {
 		}
 
 		$this->connection->closeConnection();
+		}catch (Exception $e) {
+    echo $e->getMessage();
+}
 
 	}
 }
