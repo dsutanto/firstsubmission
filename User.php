@@ -39,7 +39,7 @@ class User {
 		$this->connection = new Connection();
 		$conn = $this->connection->openConnection();
 
-		$read = $conn->prepare("SELECT FullName, Email, Gender, CONVERT(varchar,Created,101) as Created FROM [dbo].[User]");
+		$read = $conn->prepare("SELECT FullName, Email, Gender, CONVERT(varchar,Created,103) as Created FROM [dbo].[User]");
 		$read->execute();
 
 		return $read->fetchAll(PDO::FETCH_ASSOC);
