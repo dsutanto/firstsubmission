@@ -39,7 +39,7 @@ $data = $user->read();
     <td><?php echo $row["FullName"] ?></td>
     <td><?php echo $row["Email"] ?></td>
     <td><?php echo $row["Gender"] ?></td>
-    <td><?php echo $row["Created"]->format('Y-m-d'); ?></td>
+    <td><?php echo $row["Created"]->format('Y-m-d') ?></td>
    </tr>
 
   <?php } ?>
