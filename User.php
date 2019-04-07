@@ -44,18 +44,14 @@ class User {
 		$read = $conn->prepare("Select * from [dbo].[User]");
 		$read->execute();
 
-		if ($read->rowCount() > 0) {
-			return $read->fetchAll(PDO::FETCH_ASSOC);
-
-		} else {
-			echo "<i style='color:red'>No Record Found<i>";
-			return (false);
-		}
+		$result = $read->fetchAll(PDO::FETCH_ASSOC);
+			
+		print_r($result);
 
 		$this->connection->closeConnection();
 		}catch (Exception $e) {
-    echo $e->getMessage();
-}
+		    echo $e->getMessage();
+		}
 
 	}
 }
