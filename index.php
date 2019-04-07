@@ -9,7 +9,7 @@ $data = $user->read();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Read operation</title>
+  <title>Dicoding Azure First Submission</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,7 +22,7 @@ $data = $user->read();
 <div class="container">
   <h2>List of Users</h2>
 
-  <div ><a href="create.php" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Create New User</a></div>
+  <div ><a href="create.php" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Add New User</a></div>
   <table class="table table-striped table-responsive">
     <thead>
       <tr>
@@ -32,19 +32,15 @@ $data = $user->read();
       </tr>
     </thead>
     <tbody>
-    <?php foreach ($data as $row) {
-	?>
+
+    <?php foreach ($data as $row) { ?>
    <tr>
-    <form name="userForm<?php echo $row['UserId']; ?>" role="form" method="POST" action="UserController.php">
-    <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
     <td><?php echo $row["FullName"] ?></td>
     <td><?php echo $row["Email"] ?></td>
     <td><?php echo $row["Gender"] ?></td>
-  </form>
    </tr>
 
-<?php
-}?>
+  <?php } ?>
     </tbody>
   </table>
 </div>
